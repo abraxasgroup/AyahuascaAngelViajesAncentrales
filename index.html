@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>El Ángel de la Ayahuasca — Viaje Sagrado al Corazón del Amazonas | Medicina Ancestral</title>
-  <meta name="description" content="Retiro de 10 días en Putumayo, Colombia, con Taita José Mora y Andreea (El Ángel de la Ayahuasca). Ceremonias, integración, hospedaje y alimentación incluidos." />
+  <meta name="description" content="Retiro de 10 días en Putumayo, Colombia, con Taita José Mora y Andrea (El Ángel de la Ayahuasca). Ceremonias, integración, hospedaje y alimentación incluidos." />
   <meta name="keywords" content="ayahuasca, retiro, medicina ancestral, Putumayo, Colombia, Taita José Mora, Cofán, ceremonia, integración, Kambó, Rapé" />
   <link rel="canonical" href="https://example.com/" />
   <meta property="og:type" content="website" />
@@ -111,6 +111,8 @@
       background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
+      /* Color de texto predeterminado para mejorar legibilidad sobre fondo oscuro */
+      color: #f5f5f5;
     }
   </style>
 </head>
@@ -120,7 +122,8 @@
     <!-- Capas de parallax reales para el camino de la selva -->
      <img src="media/cruz.jpg" alt="Rosario sobre poste de madera" class="parallax-layer opacity-40" data-depth="0.2" />
      <img src="media/taita-mesa.jpg" alt="Taita preparando medicina sobre mesa ritual" class="parallax-layer opacity-60" data-depth="0.5" />
-     <img src="media/grupo.jpg" alt="Grupo junto al atardecer en la selva" class="parallax-layer opacity-80" data-depth="0.9" />
+     <!-- Última capa usa la imagen mística proporcionada para evitar mostrar al grupo completo como fondo -->
+     <img src="media/mistica.png" alt="Camino místico en la selva" class="parallax-layer opacity-80" data-depth="0.9" />
     <canvas id="fireflies" class="absolute inset-0"></canvas>
   </div>
   <!-- NAV -->
@@ -135,10 +138,17 @@
         <a href="#faq" class="hover:opacity-100">FAQ</a>
         <a href="#contacto" class="hover:opacity-100">Contacto</a>
       </nav>
-      <div class="flex items-center gap-2">
-        <button id="btnES" class="px-3 py-1 rounded-full text-xs border border-white/20">ES</button>
-        <button id="btnEN" class="px-3 py-1 rounded-full text-xs border border-white/20 opacity-70">EN</button>
-      </div>
+       <div class="flex items-center gap-2">
+         <button id="btnES" class="px-3 py-1 rounded-full text-xs border border-white/20">ES</button>
+         <button id="btnEN" class="px-3 py-1 rounded-full text-xs border border-white/20 opacity-70">EN</button>
+         <!-- Botones adicionales de idioma (se muestran pero por ahora reutilizan contenido en español) -->
+         <button id="btnPT" class="px-3 py-1 rounded-full text-xs border border-white/20 opacity-70">PT</button>
+         <button id="btnFR" class="px-3 py-1 rounded-full text-xs border border-white/20 opacity-70">FR</button>
+         <button id="btnJP" class="px-3 py-1 rounded-full text-xs border border-white/20 opacity-70">JP</button>
+         <button id="btnCN" class="px-3 py-1 rounded-full text-xs border border-white/20 opacity-70">CN</button>
+         <button id="btnDA" class="px-3 py-1 rounded-full text-xs border border-white/20 opacity-70">DA</button>
+         <button id="btnRO" class="px-3 py-1 rounded-full text-xs border border-white/20 opacity-70">RO</button>
+       </div>
     </div>
   </header>
 
@@ -168,8 +178,8 @@
         <span data-en style="display:none">With Taita José Mora — disciple of Master Taita Querubín Queta Alvarado</span>
       </p>
       <p class="mt-6 max-w-3xl mx-auto opacity-90">
-        <span data-es>Una inmersión en medicina sagrada ancestral guiada por Andreea — 🪽 El Ángel de la Ayahuasca 🪽 — para reconectar con tu corazón, liberar cargas y recordar quién eres.</span>
-        <span data-en style="display:none">An immersion in ancestral sacred medicine guided by Andreea — 🪽 The Angel of Ayahuasca 🪽 — to reconnect with your heart, release burdens and remember who you are.</span>
+        <span data-es>Una inmersión en medicina sagrada ancestral guiada por Andrea — 🪽 El Ángel de la Ayahuasca 🪽 — para reconectar con tu corazón, liberar cargas y recordar quién eres.</span>
+        <span data-en style="display:none">An immersion in ancestral sacred medicine guided by Andrea — 🪽 The Angel of Ayahuasca 🪽 — to reconnect with your heart, release burdens and remember who you are.</span>
       </p>
       <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
         <a href="#precios" class="px-6 py-3 rounded-full bg-lime-300 text-neutral-900 font-semibold">Reservar</a>
@@ -207,10 +217,10 @@
           <span data-en style="display:none">A space for healing and integration</span>
         </h2>
         <p class="opacity-90" data-es>
-          Bajo cantos sagrados ícaros y la guía de Taita José Mora, ingresarás a un círculo de medicina para abrir el corazón, sanar heridas ancestrales y redescubrir la verdad del alma. Andreea acompaña los procesos con respiración, yoga e integración.
+          Bajo cantos sagrados ícaros y la guía de Taita José Mora, ingresarás a un círculo de medicina para abrir el corazón, sanar heridas ancestrales y redescubrir la verdad del alma. Andrea acompaña los procesos con respiración, yoga e integración.
         </p>
         <p class="opacity-90" data-en style="display:none">
-          Under sacred ícaros and the guidance of Taita José Mora, you will enter a medicine circle to open the heart, heal ancestral wounds, and rediscover the truth of the soul. Andreea supports the process with breathwork, yoga and integration.
+          Under sacred ícaros and the guidance of Taita José Mora, you will enter a medicine circle to open the heart, heal ancestral wounds, and rediscover the truth of the soul. Andrea supports the process with breathwork, yoga and integration.
         </p>
         <div class="grid grid-cols-2 gap-4 mt-6">
           <div class="card p-5">
@@ -276,20 +286,20 @@
   <!-- PRESENTACIÓN / COPY LARGO -->
   <section class="relative py-16" id="presentacion">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-4" data-es>Invitación de Andreea</h2>
-      <h2 class="text-2xl md:text-3xl font-semibold mb-4" data-en style="display:none">Andreea’s invitation</h2>
+      <h2 class="text-2xl md:text-3xl font-semibold mb-4" data-es>Invitación de Andrea</h2>
+      <h2 class="text-2xl md:text-3xl font-semibold mb-4" data-en style="display:none">Andrea’s invitation</h2>
       <div class="grid md:grid-cols-3 gap-6 items-start">
-         <img src="media/andreea.jpg" alt="Andreea — El Ángel de la Ayahuasca" class="rounded-2xl md:col-span-1 object-cover w-full h-full max-h-[360px]">
+         <img src="media/andreaa.jpg" alt="Andrea — El Ángel de la Ayahuasca" class="rounded-2xl md:col-span-1 object-cover w-full h-full max-h-[360px]">
         <div class="md:col-span-2">
           <details class="card p-5" open>
             <summary class="cursor-pointer font-semibold">Ver descripción</summary>
             <div class="mt-3 space-y-3 text-sm leading-relaxed opacity-90" data-es>
               <p>🌿 Viaje Sagrado al Corazón del Amazonas en el Templo — Con Taita José Mora (discípulo del Maestro Taita Querubín Queta Alvarado). Ubicación: Putumayo, Colombia — 10 días de reconexión, sanación y renacimiento espiritual. Tribu: Cofán.</p>
-              <p>💫 Alma querida, mi nombre es Andreea, experta en medicina sagrada ancestral, taróloga y creadora de contenido en YouTube, conocida como 🪽 El Ángel de la Ayahuasca 🪽. Te invito a un viaje transformador, una experiencia viva del alma y una reconexión con el Espíritu de la Tierra...</p>
+              <p>💫 Alma querida, mi nombre es Andrea, experta en medicina sagrada ancestral, taróloga y creadora de contenido en YouTube, conocida como 🪽 El Ángel de la Ayahuasca 🪽. Te invito a un viaje transformador, una experiencia viva del alma y una reconexión con el Espíritu de la Tierra...</p>
               <p>La Ayahuasca no es una sustancia, sino una Conciencia viva... Ícaros, círculo de luz e intención pura, para liberar el dolor, sanar heridas y redescubrir la verdad del alma.</p>
               <ul class="list-disc list-inside">
                 <li>🌱 6 ceremonias guiadas por Taita José Mora</li>
-                <li>🕉️ Yoga, respiración consciente e integración con Andreea</li>
+                <li>🕉️ Yoga, respiración consciente e integración con Andrea</li>
                 <li>🔥 Círculo de Palabra</li>
                 <li>🌸 Kambó, Rapé, Mambe, Ortiga (opcionales según guía)</li>
                 <li>💧 Meditaciones e integración con los elementos</li>
@@ -332,8 +342,8 @@
           <ul class="mt-2 text-sm opacity-90 list-disc list-inside">
             <li data-es>Yoga, respiración consciente y meditaciones</li>
             <li data-en style="display:none">Yoga, breathwork and meditations</li>
-            <li data-es>Acompañamiento de Andreea</li>
-            <li data-en style="display:none">Guidance by Andreea</li>
+            <li data-es>Acompañamiento de Andrea</li>
+            <li data-en style="display:none">Guidance by Andrea</li>
           </ul>
         </div>
         <div class="card p-6">
@@ -396,13 +406,13 @@
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-semibold mb-6" data-es>Galería</h2>
       <h2 class="text-2xl md:text-3xl font-semibold mb-6" data-en style="display:none">Gallery</h2>
-      <p class="opacity-80 text-sm mb-4" data-es>Reemplaza estas imágenes por las reales (incluida la foto de Andreea).</p>
-      <p class="opacity-80 text-sm mb-4" data-en style="display:none">Replace these with real images (including Andreea’s photo).</p>
+      <p class="opacity-80 text-sm mb-4" data-es>Reemplaza estas imágenes por las reales (incluida la foto de Andrea).</p>
+      <p class="opacity-80 text-sm mb-4" data-en style="display:none">Replace these with real images (including Andrea’s photo).</p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
          <img class="aspect-[4/3] object-cover rounded-xl" src="media/cruz.jpg" alt="Rosario sobre poste de madera" />
          <img class="aspect-[4/3] object-cover rounded-xl" src="media/taita-mesa.jpg" alt="Taita preparando medicina sobre mesa ritual" />
          <img class="aspect-[4/3] object-cover rounded-xl" src="media/grupo.jpg" alt="Grupo junto al atardecer en la selva" />
-         <img class="aspect-[4/3] object-cover rounded-xl" src="media/andreea.jpg" alt="Andreea — El Ángel de la Ayahuasca" />
+         <img class="aspect-[4/3] object-cover rounded-xl" src="media/andreaa.jpg" alt="Andrea — El Ángel de la Ayahuasca" />
       </div>
     </div>
   </section>
@@ -414,8 +424,8 @@
       <h2 class="text-2xl md:text-3xl font-semibold mb-6" data-en style="display:none">What participants say</h2>
       <div class="grid md:grid-cols-3 gap-6" id="testi-wrap">
         <div class="card p-6">
-          <p class="italic opacity-90" data-es>“Sentí renacer. El acompañamiento de Andreea fue amoroso y claro. La medicina me mostró lo que necesitaba ver.”</p>
-          <p class="italic opacity-90" data-en style="display:none">“I felt reborn. Andreea’s support was loving and clear. The medicine showed me what I needed to see.”</p>
+          <p class="italic opacity-90" data-es>“Sentí renacer. El acompañamiento de Andrea fue amoroso y claro. La medicina me mostró lo que necesitaba ver.”</p>
+           <p class="italic opacity-90" data-en style="display:none">“I felt reborn. Andrea’s support was loving and clear. The medicine showed me what I needed to see.”</p>
           <p class="mt-3 text-xs opacity-70">— Participante, 2024</p>
         </div>
         <div class="card p-6">
@@ -648,18 +658,37 @@
   </footer>
 
   <script>
-    // Idiomas: ES / EN
+    // Idiomas: ES / EN y otros (PT, FR, JP, CN, DA, RO)
     const btnES = document.getElementById('btnES');
     const btnEN = document.getElementById('btnEN');
-    const showLang = (lang) => {
-      document.querySelectorAll('[data-es]').forEach(el => el.style.display = (lang==='es') ? '' : 'none');
-      document.querySelectorAll('[data-en]').forEach(el => el.style.display = (lang==='en') ? '' : 'none');
-      btnES.classList.toggle('opacity-70', lang !== 'es');
-      btnEN.classList.toggle('opacity-70', lang !== 'en');
+    const btnPT = document.getElementById('btnPT');
+    const btnFR = document.getElementById('btnFR');
+    const btnJP = document.getElementById('btnJP');
+    const btnCN = document.getElementById('btnCN');
+    const btnDA = document.getElementById('btnDA');
+    const btnRO = document.getElementById('btnRO');
+    const allBtns = [btnES, btnEN, btnPT, btnFR, btnJP, btnCN, btnDA, btnRO];
+    const selectBtn = (btn) => {
+      allBtns.forEach(b => b.classList.add('opacity-70'));
+      btn.classList.remove('opacity-70');
     };
-    btnES.addEventListener('click', ()=>showLang('es'));
-    btnEN.addEventListener('click', ()=>showLang('en'));
+    const showLang = (lang) => {
+      // Muestra español para todos los idiomas excepto 'en'
+      document.querySelectorAll('[data-es]').forEach(el => el.style.display = (lang==='en') ? 'none' : '');
+      document.querySelectorAll('[data-en]').forEach(el => el.style.display = (lang==='en') ? '' : 'none');
+    };
+    // Asignar eventos: PT, FR, JP, CN, DA, RO usan español
+    btnES.addEventListener('click', ()=>{ showLang('es'); selectBtn(btnES); });
+    btnEN.addEventListener('click', ()=>{ showLang('en'); selectBtn(btnEN); });
+    btnPT.addEventListener('click', ()=>{ showLang('es'); selectBtn(btnPT); });
+    btnFR.addEventListener('click', ()=>{ showLang('es'); selectBtn(btnFR); });
+    btnJP.addEventListener('click', ()=>{ showLang('es'); selectBtn(btnJP); });
+    btnCN.addEventListener('click', ()=>{ showLang('es'); selectBtn(btnCN); });
+    btnDA.addEventListener('click', ()=>{ showLang('es'); selectBtn(btnDA); });
+    btnRO.addEventListener('click', ()=>{ showLang('es'); selectBtn(btnRO); });
+    // Idioma por defecto
     showLang('es');
+    selectBtn(btnES);
 
     // Año automático
     document.getElementById('year').textContent = new Date().getFullYear();
