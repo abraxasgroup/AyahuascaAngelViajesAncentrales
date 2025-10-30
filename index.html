@@ -78,6 +78,15 @@
     /* Sticky CTA */
     .sticky-cta { position:fixed; z-index:50; inset-inline:1rem; bottom:1rem; }
     @media (min-width: 768px){ .sticky-cta{ inset-inline:auto; right:1.5rem; width:420px; } }
+
+    /* Fondo general: imagen mística para evitar blancos. La imagen debe existir en /media/mistica.png */
+    body {
+      background-image: url('/media/mistica.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
   </style>
 </head>
 <body>
@@ -110,9 +119,10 @@
 
   <!-- HERO -->
   <section class="relative min-h-[92vh] flex items-center overflow-hidden">
-    <div class="hero-video">
-      <iframe src="https://www.youtube.com/embed/q2mvcffdNeU?autoplay=1&mute=1&controls=0&loop=1&playlist=q2mvcffdNeU&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media; playsinline;" class="w-full h-full object-cover" frameborder="0"></iframe>
-    </div>
+    <!-- Hero: utiliza el video Selva.mp4 para una introducción inmersiva. -->
+    <video class="hero-video" autoplay muted playsinline loop poster="cover.jpg" preload="auto">
+      <source src="/media/Selva.mp4" type="video/mp4" />
+    </video>
     <div class="absolute inset-0 mask-grad"></div>
     <div class="relative z-10 max-w-5xl mx-auto px-4 pt-28 pb-12 text-center">
       <div class="flex justify-center gap-2 mb-6">
