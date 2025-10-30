@@ -1,1 +1,635 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>El Ángel de la Ayahuasca — Viaje Sagrado al Corazón del Amazonas | Medicina Ancestral</title>
+  <meta name="description" content="Retiro de 10 días en Putumayo, Colombia, con Taita José Mora y Andreea (El Ángel de la Ayahuasca). Ceremonias, integración, hospedaje y alimentación incluidos." />
+  <meta name="keywords" content="ayahuasca, retiro, medicina ancestral, Putumayo, Colombia, Taita José Mora, Cofán, ceremonia, integración, Kambó, Rapé" />
+  <link rel="canonical" href="https://example.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="El Ángel de la Ayahuasca — Viaje Sagrado al Corazón del Amazonas" />
+  <meta property="og:description" content="10 días de reconexión, sanación y renacimiento espiritual en Putumayo, Colombia. Ceremonias con Taita José Mora. Hospedaje y comidas incluidas." />
+  <meta property="og:image" content="https://example.com/cover.jpg" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" hreflang="es" href="https://example.com/es" />
+  <link rel="alternate" hreflang="en" href="https://example.com/en" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "El Ángel de la Ayahuasca",
+    "url": "https://example.com/",
+    "logo": "https://example.com/logo.png",
+    "sameAs": ["https://www.youtube.com/@Angel_Ayahuasca"],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "ayahuascaangel@yahoo.com",
+      "telephone": "+68987311369",
+      "areaServed": "Worldwide",
+      "availableLanguage": ["es", "en", "pt", "it", "fr", "de"]
+    }]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    "name": "Paquetes de Retiro Ayahuasca",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Hamaca en la maloka",
+        "price": "1499",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Habitación doble compartida (cama individual)",
+        "price": "1799",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      }
+    ]
+  }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Fondo video */
+    $1 cursor:pointer; }
+    /* Gradiente sutil por legibilidad */
+    .mask-grad { background: radial-gradient(80% 80% at 50% 20%, rgba(0,0,0,0.2), rgba(0,0,0,0.7)); }
+    .glass { background: rgba(255,255,255,0.08); backdrop-filter: blur(6px); }
+    .chip { @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium border border-white/20; }
+    .card { @apply rounded-2xl shadow-lg border border-white/10 glass; }
+    /* Fondo interactivo (parallax) */
+    #bg-parallax { pointer-events:none; }
+    .parallax-layer { position:absolute; top:-5%; left:-5%; width:110%; height:110%; object-fit:cover; transform:translate3d(0,0,0) scale(1.05); will-change: transform; }
+    #fireflies { pointer-events:none; }
+
+    /* Barra de urgencia */
+    .progress-wrap { height:10px; border-radius:9999px; background:rgba(255,255,255,0.12); overflow:hidden; }
+    .progress-bar { height:100%; width:0%; background:linear-gradient(90deg, #bef264, #84cc16); }
+
+    /* Sticky CTA */
+    .sticky-cta { position:fixed; z-index:50; inset-inline:1rem; bottom:1rem; }
+    @media (min-width: 768px){ .sticky-cta{ inset-inline:auto; right:1.5rem; width:420px; } }
+  </style>
+</head>
+<body$1>
+  <!-- Fondo interactivo: Camino de la selva (parallax + luciérnagas) -->
+  <div id="bg-parallax" aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden">
+    <!-- Reemplaza por tus capas reales del camino de la selva -->
+    <img src="/media/path_far.jpg" alt="Selva lejana" class="parallax-layer opacity-40" data-depth="0.2"/>
+    <img src="/media/path_mid.png" alt="Selva media" class="parallax-layer opacity-60" data-depth="0.5"/>
+    <img src="/media/path_near.png" alt="Selva cercana" class="parallax-layer opacity-80" data-depth="0.9"/>
+    <canvas id="fireflies" class="absolute inset-0"></canvas>
+  </div>
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-30">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="font-semibold tracking-wide">🪽 <span class="hidden sm:inline">El Ángel de la Ayahuasca</span></a>
+      <nav class="hidden md:flex gap-6 text-sm opacity-90">
+        <a href="#incluye" class="hover:opacity-100">Incluye</a>
+        <a href="#lugar" class="hover:opacity-100">Lugar</a>
+        $1
+        <a href="#reserva" class="hover:opacity-100">Inscribirme</a>
+        <a href="#faq" class="hover:opacity-100">FAQ</a>
+        <a href="#contacto" class="hover:opacity-100">Contacto</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button id="btnES" class="px-3 py-1 rounded-full text-xs border border-white/20">ES</button>
+        <button id="btnEN" class="px-3 py-1 rounded-full text-xs border border-white/20 opacity-70">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative min-h-[92vh] flex items-center overflow-hidden">
+    <video class="hero-video" autoplay muted playsinline loop poster="cover.jpg" preload="auto">
+      <!-- Reemplazar src por el video de la jungla (archivo .mp4 alojado en tu hosting) -->
+      <source src="Selva.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 mask-grad"></div>
+    <div class="relative z-10 max-w-5xl mx-auto px-4 pt-28 pb-12 text-center">
+      <div class="flex justify-center gap-2 mb-6">
+        <span class="chip">Putumayo, Colombia</span>
+        <span class="chip" data-es>10 días • Tribu Cofán</span>
+        <span class="chip" data-en style="display:none">10 days • Cofán Tribe</span>
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+        <span data-es>Viaje Sagrado al Corazón del Amazonas</span>
+        <span data-en style="display:none">Sacred Journey to the Heart of the Amazon</span>
+      </h1>
+      <p class="mt-4 text-base md:text-lg opacity-90">
+        <span data-es>Con Taita José Mora — discípulo del Maestro Taita Querubín Queta Alvarado</span>
+        <span data-en style="display:none">With Taita José Mora — disciple of Master Taita Querubín Queta Alvarado</span>
+      </p>
+      <p class="mt-6 max-w-3xl mx-auto opacity-90">
+        <span data-es>Una inmersión en medicina sagrada ancestral guiada por Andreea — 🪽 El Ángel de la Ayahuasca 🪽 — para reconectar con tu corazón, liberar cargas y recordar quién eres.</span>
+        <span data-en style="display:none">An immersion in ancestral sacred medicine guided by Andreea — 🪽 The Angel of Ayahuasca 🪽 — to reconnect with your heart, release burdens and remember who you are.</span>
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="#precios" class="px-6 py-3 rounded-full bg-lime-300 text-neutral-900 font-semibold">Reservar</a>
+        <a href="#reserva" class="px-6 py-3 rounded-full border border-white/20"><span data-es>Formulario</span><span data-en style="display:none">Sign up</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- URGENCIA / ESCARCIDAD -->
+  <section id="urgencia" class="bg-emerald-900/40 border-y border-white/10 py-4" data-date="">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-3 md:gap-6">
+      <div class="text-sm md:text-base">
+        <span class="font-semibold" data-es>Próximo retiro en</span>
+        <span class="font-semibold" data-en style="display:none">Next retreat in</span>
+        <span id="countdown" class="tabular-nums"></span>
+      </div>
+      <div class="flex-1 w-full">
+        <div class="progress-wrap"><div id="spots-bar" class="progress-bar"></div></div>
+        <p class="mt-1 text-xs opacity-80">
+          <span data-es>Quedan <b id="spots-left">—</b> de <b id="spots-total">—</b> lugares</span>
+          <span data-en style="display:none">Only <b id="spots-left-en">—</b> of <b id="spots-total-en">—</b> spots left</span>
+        </p>
+      </div>
+      <a href="#reserva" class="px-5 py-2 rounded-full bg-lime-300 text-neutral-900 font-semibold whitespace-nowrap" data-es>Inscribirme ahora</a>
+      <a href="#reserva" class="px-5 py-2 rounded-full bg-lime-300 text-neutral-900 font-semibold whitespace-nowrap" data-en style="display:none">Apply now</a>
+    </div>
+  </section>
+
+  <!-- SOBRE / INVITACIÓN -->
+  <section class="relative py-16" id="sobre">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-start">
+      <div class="space-y-4">
+        <h2 class="text-2xl md:text-3xl font-semibold">
+          <span data-es>Un espacio de sanación e integración</span>
+          <span data-en style="display:none">A space for healing and integration</span>
+        </h2>
+        <p class="opacity-90" data-es>
+          Bajo cantos sagrados ícaros y la guía de Taita José Mora, ingresarás a un círculo de medicina para abrir el corazón, sanar heridas ancestrales y redescubrir la verdad del alma. Andreea acompaña los procesos con respiración, yoga e integración.
+        </p>
+        <p class="opacity-90" data-en style="display:none">
+          Under sacred ícaros and the guidance of Taita José Mora, you will enter a medicine circle to open the heart, heal ancestral wounds, and rediscover the truth of the soul. Andreea supports the process with breathwork, yoga and integration.
+        </p>
+        <div class="grid grid-cols-2 gap-4 mt-6">
+          <div class="card p-5">
+            <div class="text-2xl">🌱</div>
+            <p class="mt-2 text-sm opacity-90" data-es>6 ceremonias de Ayahuasca</p>
+            <p class="mt-2 text-sm opacity-90" data-en style="display:none">6 Ayahuasca ceremonies</p>
+          </div>
+          <div class="card p-5">
+            <div class="text-2xl">🕉️</div>
+            <p class="mt-2 text-sm opacity-90" data-es>Yoga, respiración e integración</p>
+            <p class="mt-2 text-sm opacity-90" data-en style="display:none">Yoga, breathwork & integration</p>
+          </div>
+          <div class="card p-5">
+            <div class="text-2xl">🪶</div>
+            <p class="mt-2 text-sm opacity-90" data-es>Aprendizaje con la Tribu Cofán</p>
+            <p class="mt-2 text-sm opacity-90" data-en style="display:none">Learning with the Cofán Tribe</p>
+          </div>
+          <div class="card p-5">
+            <div class="text-2xl">🥗</div>
+            <p class="mt-2 text-sm opacity-90" data-es>Comida limpia y hospedaje ecológico</p>
+            <p class="mt-2 text-sm opacity-90" data-en style="display:none">Clean food & eco‑lodging</p>
+          </div>
+        </div>
+      </div>
+      <div class="card p-4">
+        <div class="aspect-video rounded-xl overflow-hidden">
+          <!-- Reemplaza VIDEO_ID por el ID del video de la jungla -->
+          <iframe id="video" class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID" title="Video — El Ángel de la Ayahuasca" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <a class="block text-center mt-3 underline opacity-90" href="https://www.youtube.com/@Angel_Ayahuasca" target="_blank" rel="noreferrer">Canal de YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LUGAR / LOGÍSTICA -->
+  <section class="relative py-16" id="lugar">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="md:col-span-2 card p-6">
+          <h3 class="text-xl font-semibold mb-3" data-es>Ubicación & Logística</h3>
+          <h3 class="text-xl font-semibold mb-3" data-en style="display:none">Location & Logistics</h3>
+          <ul class="list-disc list-inside space-y-2 opacity-90" data-es>
+            <li>Putumayo, Colombia — selva tropical cerca de ríos y aves.</li>
+            <li>Duración: 10 días. No es turismo: es una iniciación.</li>
+            <li>Transporte individual hasta Puerto Asís. Te recogemos en el aeropuerto.</li>
+            <li>Hospedaje ecológico y alimentación incluidos.</li>
+          </ul>
+          <ul class="list-disc list-inside space-y-2 opacity-90" data-en style="display:none">
+            <li>Putumayo, Colombia — rainforest near rivers and birdsong.</li>
+            <li>Length: 10 days. Not tourism: an initiation.</li>
+            <li>Individual transport to Puerto Asís. We pick you up at the airport.</li>
+            <li>Eco‑lodging and meals included.</li>
+          </ul>
+        </div>
+        <div class="card p-6">
+          <h3 class="text-xl font-semibold mb-3">Remedios tradicionales</h3>
+          <p class="opacity-90 text-sm" data-es>Opcionales según guía: Kambó, Rapé, Mambe, Ortiga y otras plantas sagradas para purificación e integración.</p>
+          <p class="opacity-90 text-sm" data-en style="display:none">Optional per guidance: Kambó, Rapé, Mambe, Nettle and other sacred plants for purification and integration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESENTACIÓN / COPY LARGO -->
+  <section class="relative py-16" id="presentacion">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-4" data-es>Invitación de Andreea</h2>
+      <h2 class="text-2xl md:text-3xl font-semibold mb-4" data-en style="display:none">Andreea’s invitation</h2>
+      <div class="grid md:grid-cols-3 gap-6 items-start">
+        <img src="/media/andreea.jpg" alt="Andreea — El Ángel de la Ayahuasca" class="rounded-2xl md:col-span-1 object-cover w-full h-full max-h-[360px]">
+        <div class="md:col-span-2">
+          <details class="card p-5" open>
+            <summary class="cursor-pointer font-semibold">Ver descripción</summary>
+            <div class="mt-3 space-y-3 text-sm leading-relaxed opacity-90" data-es>
+              <p>🌿 Viaje Sagrado al Corazón del Amazonas en el Templo — Con Taita José Mora (discípulo del Maestro Taita Querubín Queta Alvarado). Ubicación: Putumayo, Colombia — 10 días de reconexión, sanación y renacimiento espiritual. Tribu: Cofán.</p>
+              <p>💫 Alma querida, mi nombre es Andreea, experta en medicina sagrada ancestral, taróloga y creadora de contenido en YouTube, conocida como 🪽 El Ángel de la Ayahuasca 🪽. Te invito a un viaje transformador, una experiencia viva del alma y una reconexión con el Espíritu de la Tierra...</p>
+              <p>La Ayahuasca no es una sustancia, sino una Conciencia viva... Ícaros, círculo de luz e intención pura, para liberar el dolor, sanar heridas y redescubrir la verdad del alma.</p>
+              <ul class="list-disc list-inside">
+                <li>🌱 6 ceremonias guiadas por Taita José Mora</li>
+                <li>🕉️ Yoga, respiración consciente e integración con Andreea</li>
+                <li>🔥 Círculo de Palabra</li>
+                <li>🌸 Kambó, Rapé, Mambe, Ortiga (opcionales según guía)</li>
+                <li>💧 Meditaciones e integración con los elementos</li>
+                <li>🪶 Tiempo compartido con la Tribu Cofán</li>
+                <li>🥗 Comida tradicional limpia</li>
+                <li>🏡 Alojamiento ecológico en la selva</li>
+              </ul>
+              <p>🌎 Este proyecto apoya a la Tribu Cofán para fortalecer su cultura, educación y calidad de vida. 🍃 La Ayahuasca te llama cuando estás preparado para verte de verdad.</p>
+            </div>
+            <div class="mt-3 space-y-3 text-sm leading-relaxed opacity-90" data-en style="display:none">
+              <p>English summary available on request.</p>
+            </div>
+          </details>
+          <div class="mt-4 flex gap-3">
+            <a href="#precios" class="px-5 py-2 rounded-full border border-white/20" data-es>Ver precios</a>
+            <a href="#reserva" class="px-5 py-2 rounded-full bg-lime-300 text-neutral-900 font-semibold" data-es>Inscribirme</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INCLUYE -->
+  <section class="relative py-16" id="incluye">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-8" data-es>¿Qué incluye el retiro?</h2>
+      <h2 class="text-2xl md:text-3xl font-semibold mb-8" data-en style="display:none">What’s included</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6">
+          <h4 class="font-semibold">✨ Ceremonias</h4>
+          <ul class="mt-2 text-sm opacity-90 list-disc list-inside">
+            <li data-es>6 ceremonias con Taita José Mora</li>
+            <li data-en style="display:none">6 ceremonies with Taita José Mora</li>
+            <li data-es>Cantos ícaros y círculo de palabra</li>
+            <li data-en style="display:none">Ícaros and sharing circle</li>
+          </ul>
+        </div>
+        <div class="card p-6">
+          <h4 class="font-semibold">🕯️ Integración</h4>
+          <ul class="mt-2 text-sm opacity-90 list-disc list-inside">
+            <li data-es>Yoga, respiración consciente y meditaciones</li>
+            <li data-en style="display:none">Yoga, breathwork and meditations</li>
+            <li data-es>Acompañamiento de Andreea</li>
+            <li data-en style="display:none">Guidance by Andreea</li>
+          </ul>
+        </div>
+        <div class="card p-6">
+          <h4 class="font-semibold">🏡 Logística</h4>
+          <ul class="mt-2 text-sm opacity-90 list-disc list-inside">
+            <li data-es>Hospedaje ecológico</li>
+            <li data-en style="display:none">Eco‑friendly lodging</li>
+            <li data-es>Comidas tradicionales limpias</li>
+            <li data-en style="display:none">Clean traditional meals</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIOS / RESERVA -->
+  <section class="relative py-16" id="precios">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-semibold text-center mb-10" data-es>Reserva tu lugar</h2>
+      <h2 class="text-2xl md:text-3xl font-semibold text-center mb-10" data-en style="display:none">Reserve your spot</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card p-6">
+          <h3 class="text-xl font-semibold">Hamaca en la maloka</h3>
+          <p class="mt-1 opacity-90">€1499</p>
+          <ul class="mt-3 text-sm opacity-90 list-disc list-inside" data-es>
+            <li>Incluye ceremonias, hospedaje y comidas</li>
+            <li>Grupo reducido</li>
+          </ul>
+          <ul class="mt-3 text-sm opacity-90 list-disc list-inside" data-en style="display:none">
+            <li>Includes ceremonies, lodging and meals</li>
+            <li>Small group</li>
+          </ul>
+          <a href="#contacto" class="mt-4 inline-block px-5 py-2 rounded-full bg-lime-300 text-neutral-900 font-semibold">Reservar</a>
+        </div>
+        <div class="card p-6">
+          <h3 class="text-xl font-semibold">Habitación doble compartida</h3>
+          <p class="mt-1 opacity-90">€1799</p>
+          <ul class="mt-3 text-sm opacity-90 list-disc list-inside" data-es>
+            <li>Incluye ceremonias, hospedaje y comidas</li>
+            <li>Espacio de descanso más privado</li>
+          </ul>
+          <ul class="mt-3 text-sm opacity-90 list-disc list-inside" data-en style="display:none">
+            <li>Includes ceremonies, lodging and meals</li>
+            <li>More private rest space</li>
+          </ul>
+          <a href="#contacto" class="mt-4 inline-block px-5 py-2 rounded-full bg-lime-300 text-neutral-900 font-semibold">Reservar</a>
+        </div>
+      </div>
+      <p class="text-center text-sm mt-4 opacity-80" data-es>Transporte no incluido. Llegada a Puerto Asís, Colombia. Recogida en aeropuerto.</p>
+      <p class="text-center text-sm mt-4 opacity-80" data-en style="display:none">Transport not included. Arrival to Puerto Asís, Colombia. Airport pickup provided.</p>
+    </div>
+  </section>
+
+  <!-- GALERÍA (placeholders) -->
+  <section class="relative py-16" id="galeria">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-6" data-es>Galería</h2>
+      <h2 class="text-2xl md:text-3xl font-semibold mb-6" data-en style="display:none">Gallery</h2>
+      <p class="opacity-80 text-sm mb-4" data-es>Reemplaza estas imágenes por las reales (incluida la foto de Andreea).</p>
+      <p class="opacity-80 text-sm mb-4" data-en style="display:none">Replace these with real images (including Andreea’s photo).</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <img class="aspect-[4/3] object-cover rounded-xl" src="/media/cruz.jpg" alt="Rosario sobre poste de madera" />
+        <img class="aspect-[4/3] object-cover rounded-xl" src="/media/taita-mesa.jpg" alt="Taita preparando medicina sobre mesa ritual" />
+        <img class="aspect-[4/3] object-cover rounded-xl" src="/media/grupo.jpg" alt="Grupo junto al atardecer en la selva" />
+        <img class="aspect-[4/3] object-cover rounded-xl" src="/media/andreea.jpg" alt="Andreea — El Ángel de la Ayahuasca" />
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS / PRUEBA SOCIAL -->
+  <section class="relative py-16" id="testimonios">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-6" data-es>Lo que dicen quienes vivieron el viaje</h2>
+      <h2 class="text-2xl md:text-3xl font-semibold mb-6" data-en style="display:none">What participants say</h2>
+      <div class="grid md:grid-cols-3 gap-6" id="testi-wrap">
+        <div class="card p-6">
+          <p class="italic opacity-90" data-es>“Sentí renacer. El acompañamiento de Andreea fue amoroso y claro. La medicina me mostró lo que necesitaba ver.”</p>
+          <p class="italic opacity-90" data-en style="display:none">“I felt reborn. Andreea’s support was loving and clear. The medicine showed me what I needed to see.”</p>
+          <p class="mt-3 text-xs opacity-70">— Participante, 2024</p>
+        </div>
+        <div class="card p-6">
+          <p class="italic opacity-90" data-es>“La logística impecable y la tribu Cofán nos abrió el corazón. Volví en paz.”</p>
+          <p class="italic opacity-90" data-en style="display:none">“Flawless logistics and the Cofán tribe opened our hearts. I returned in peace.”</p>
+          <p class="mt-3 text-xs opacity-70">— Participante, 2024</p>
+        </div>
+        <div class="card p-6">
+          <p class="italic opacity-90" data-es>“La integración fue clave para sostener los aprendizajes al regresar a casa.”</p>
+          <p class="italic opacity-90" data-en style="display:none">“Integration was key to sustain the learnings back home.”</p>
+          <p class="mt-3 text-xs opacity-70">— Participante, 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ / AVISOS -->
+  <section class="relative py-16" id="faq">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-6">FAQ</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card p-6">
+          <h4 class="font-semibold mb-2" data-es>¿Es seguro?</h4>
+          <h4 class="font-semibold mb-2" data-en style="display:none">Is it safe?</h4>
+          <p class="opacity-90 text-sm" data-es>La seguridad es prioridad. Se realiza entrevista previa, se revisan contraindicaciones y se acompaña el proceso con integración profesional.</p>
+          <p class="opacity-90 text-sm" data-en style="display:none">Safety is a priority. Pre‑screening, contraindications check and professional integration support are included.</p>
+        </div>
+        <div class="card p-6">
+          <h4 class="font-semibold mb-2" data-es>Aspectos legales</h4>
+          <h4 class="font-semibold mb-2" data-en style="display:none">Legal aspects</h4>
+          <p class="opacity-90 text-sm" data-es>Las leyes varían por país. Este retiro se realiza en Colombia en contexto tradicional indígena. Cada participante debe cumplir la normativa y asesorarse médicamente.</p>
+          <p class="opacity-90 text-sm" data-en style="display:none">Laws vary by country. This retreat takes place in Colombia within an indigenous traditional context. Participants must comply with regulations and seek medical advice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVA / FORMULARIO -->
+  <section class="relative py-16" id="reserva">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-center" data-es>Formulario de inscripción</h2>
+      <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-center" data-en style="display:none">Sign‑up form</h2>
+      <form action="https://formsubmit.co/ayahuascaangel@yahoo.com" method="POST" class="card p-6 space-y-4">
+        <input type="hidden" name="_subject" value="Nueva inscripción — Viaje Sagrado" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="text-sm opacity-90" data-es>Nombre completo</label>
+            <label class="text-sm opacity-90" data-en style="display:none">Full name</label>
+            <input required name="name" class="mt-1 w-full rounded-xl bg-white/10 border border-white/20 px-3 py-2" placeholder="Tu nombre" />
+          </div>
+          <div>
+            <label class="text-sm opacity-90">Email</label>
+            <input required type="email" name="email" class="mt-1 w-full rounded-xl bg-white/10 border border-white/20 px-3 py-2" placeholder="tucorreo@email.com" />
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="text-sm opacity-90">WhatsApp</label>
+            <input required name="whatsapp" class="mt-1 w-full rounded-xl bg-white/10 border border-white/20 px-3 py-2" placeholder="+54 9 ..." />
+          </div>
+          <div>
+            <label class="text-sm opacity-90" data-es>País</label>
+            <label class="text-sm opacity-90" data-en style="display:none">Country</label>
+            <input name="country" class="mt-1 w-full rounded-xl bg-white/10 border border-white/20 px-3 py-2" placeholder="Argentina" />
+          </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div>
+            <label class="text-sm opacity-90" data-es>Idioma</label>
+            <label class="text-sm opacity-90" data-en style="display:none">Language</label>
+            <select name="language" class="mt-1 w-full rounded-xl bg-white/10 border border-white/20 px-3 py-2">
+              <option>Español</option>
+              <option>English</option>
+              <option>Português</option>
+              <option>Italiano</option>
+              <option>Français</option>
+              <option>Deutsch</option>
+            </select>
+          </div>
+          <div class="md:col-span-2">
+            <label class="text-sm opacity-90" data-es>Fechas preferidas</label>
+            <label class="text-sm opacity-90" data-en style="display:none">Preferred dates</label>
+            <input name="dates" class="mt-1 w-full rounded-xl bg-white/10 border border-white/20 px-3 py-2" placeholder="Ej.: Enero 2026" />
+          </div>
+        </div>
+        <div>
+          <label class="text-sm opacity-90" data-es>Alojamiento</label>
+          <label class="text-sm opacity-90" data-en style="display:none">Accommodation</label>
+          <div class="mt-2 grid sm:grid-cols-2 gap-3">
+            <label class="flex items-center gap-2"><input type="radio" name="accommodation" value="Hamaca en la maloka" required /><span data-es>Hamaca en la maloka (€1499)</span><span data-en style="display:none">Hammock in the maloka (€1499)</span></label>
+            <label class="flex items-center gap-2"><input type="radio" name="accommodation" value="Habitación doble compartida" required /><span data-es>Habitación doble compartida (€1799)</span><span data-en style="display:none">Shared twin room (€1799)</span></label>
+          </div>
+        </div>
+        <div>
+          <label class="text-sm opacity-90" data-es>Notas / consideraciones médicas</label>
+          <label class="text-sm opacity-90" data-en style="display:none">Notes / medical considerations</label>
+          <textarea name="notes" rows="4" class="mt-1 w-full rounded-xl bg-white/10 border border-white/20 px-3 py-2" placeholder="Alergias, medicación, experiencia previa, etc."></textarea>
+        </div>
+        <div class="space-y-2 text-sm">
+          <label class="flex items-start gap-2"><input type="checkbox" required name="legal" /> <span data-es>Tengo 18+ años y comprendo que este retiro se realiza en Colombia bajo contexto tradicional indígena.</span><span data-en style="display:none">I am 18+ and understand this retreat takes place in Colombia within an indigenous traditional context.</span></label>
+          <label class="flex items-start gap-2"><input type="checkbox" required name="medical" /> <span data-es>Confirmo que revisaré contraindicaciones y consultaré con mi médico en caso necesario.</span><span data-en style="display:none">I will review contraindications and consult my physician if needed.</span></label>
+          <label class="flex items-start gap-2"><input type="checkbox" required name="privacy" /> <span data-es>Acepto el tratamiento de datos para contacto e inscripción.</span><span data-en style="display:none">I consent to data processing for contact and registration.</span></label>
+        </div>
+        <button type="submit" class="w-full px-6 py-3 rounded-full bg-lime-300 text-neutral-900 font-semibold" data-es>Enviar solicitud</button>
+        <button type="submit" class="w-full px-6 py-3 rounded-full bg-lime-300 text-neutral-900 font-semibold" data-en style="display:none">Send request</button>
+        <p class="text-xs opacity-70 text-center" data-es>Al enviar, recibirás confirmación por email. También puedes escribir por WhatsApp para acelerar la coordinación.</p>
+        <p class="text-xs opacity-70 text-center" data-en style="display:none">After sending, you’ll receive email confirmation. You may also message via WhatsApp to speed up coordination.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="relative py-16" id="contacto">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-3" data-es>¿Listo para el llamado?</h2>
+      <h2 class="text-2xl md:text-3xl font-semibold mb-3" data-en style="display:none">Ready for the calling?</h2>
+      <p class="opacity-90" data-es>Escríbenos por WhatsApp o email para recibir los próximos cupos y fechas.</p>
+      <p class="opacity-90" data-en style="display:none">Write via WhatsApp or email to receive next dates and availability.</p>
+      <div class="mt-6 flex items-center justify-center gap-3 flex-wrap">
+        <a href="https://wa.me/68987311369" target="_blank" class="px-6 py-3 rounded-full bg-lime-300 text-neutral-900 font-semibold">WhatsApp</a>
+        <a href="mailto:ayahuascaangel@yahoo.com" class="px-6 py-3 rounded-full border border-white/20">ayahuascaangel@yahoo.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky CTA (siempre visible) -->
+  <div id="sticky-cta" class="sticky-cta hidden">
+    <div class="card p-4 flex items-center gap-3 bg-neutral-900/80">
+      <div>
+        <p class="text-sm font-semibold" data-es>Viaje Sagrado — cupos limitados</p>
+        <p class="text-sm font-semibold" data-en style="display:none">Sacred Journey — limited spots</p>
+        <p class="text-xs opacity-80" data-es>Elige alojamiento y envía tu solicitud</p>
+        <p class="text-xs opacity-80" data-en style="display:none">Choose accommodation and send your request</p>
+      </div>
+      <div class="ms-auto flex items-center gap-2">
+        <a href="#reserva" class="px-4 py-2 rounded-full bg-lime-300 text-neutral-900 text-sm font-semibold" data-es>Inscribirme</a>
+        <a href="#reserva" class="px-4 py-2 rounded-full bg-lime-300 text-neutral-900 text-sm font-semibold" data-en style="display:none">Apply</a>
+        <a href="https://wa.me/68987311369" target="_blank" class="px-4 py-2 rounded-full border border-white/20 text-sm">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón WhatsApp flotante -->
+  <a href="https://wa.me/68987311369" target="_blank" class="fixed bottom-4 left-4 z-40 rounded-full bg-emerald-500 px-4 py-3 shadow-lg border border-white/20">WhatsApp</a>
+
+  <footer class="border-t border-white/10 py-8 text-center text-sm opacity-70">
+    <p>🪽 El Ángel de la Ayahuasca — Medicina Ancestral • Putumayo, Colombia</p>
+    <p class="mt-1">© <span id="year"></span> Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Idiomas: ES / EN
+    const btnES = document.getElementById('btnES');
+    const btnEN = document.getElementById('btnEN');
+    const showLang = (lang) => {
+      document.querySelectorAll('[data-es]').forEach(el => el.style.display = (lang==='es') ? '' : 'none');
+      document.querySelectorAll('[data-en]').forEach(el => el.style.display = (lang==='en') ? '' : 'none');
+      btnES.classList.toggle('opacity-70', lang !== 'es');
+      btnEN.classList.toggle('opacity-70', lang !== 'en');
+    };
+    btnES.addEventListener('click', ()=>showLang('es'));
+    btnEN.addEventListener('click', ()=>showLang('en'));
+    showLang('es');
+
+    // Año automático
+    document.getElementById('year').textContent = new Date().getFullYear();
+      // Click en el video lleva al formulario
+    const heroVid = document.querySelector('.hero-video');
+    if (heroVid) {
+      heroVid.addEventListener('click', () => {
+        const el = document.getElementById('reserva');
+        if (el) el.scrollIntoView({behavior:'smooth'});
+        location.hash = 'reserva';
+      });
+    }
+      // Click video -> formulario (ya existente)
+    const heroVid = document.querySelector('.hero-video');
+    if (heroVid) {
+      heroVid.addEventListener('click', () => {
+        const el = document.getElementById('reserva');
+        if (el) el.scrollIntoView({behavior:'smooth'});
+        location.hash = 'reserva';
+      });
+    }
+
+    // Parallax
+    const layers = document.querySelectorAll('#bg-parallax .parallax-layer');
+    const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (layers.length && !prefersReduce) {
+      window.addEventListener('mousemove', (e)=>{
+        const x = (e.clientX / window.innerWidth - 0.5) * 2;
+        const y = (e.clientY / window.innerHeight - 0.5) * 2;
+        layers.forEach(layer => {
+          const d = parseFloat(layer.dataset.depth || 0.5);
+          layer.style.transform = `translate3d(${x*d*15}px, ${y*d*10}px, 0) scale(1.05)`;
+        });
+      });
+    }
+
+    // Fireflies (luciérnagas)
+    (function(){
+      if (prefersReduce) return;
+      const c = document.getElementById('fireflies');
+      if (!c) return; const ctx = c.getContext('2d');
+      let w,h; const DPR = Math.min(window.devicePixelRatio||1, 2);
+      const N = 60; const bugs = [];
+      function resize(){ w = c.width = innerWidth*DPR; h = c.height = innerHeight*DPR; }
+      function rand(a,b){ return a + Math.random()*(b-a); }
+      function reset(b){ b.x = rand(0,w); b.y = rand(0,h); b.vx = rand(-0.15,0.15); b.vy = rand(-0.1,0.1); b.r = rand(0.8,1.8)*DPR; b.a = rand(0.2,0.8); }
+      for(let i=0;i<N;i++){ bugs[i]={}; reset(bugs[i]); }
+      resize(); window.addEventListener('resize', resize);
+      (function loop(){ ctx.clearRect(0,0,w,h); ctx.globalCompositeOperation = 'lighter';
+        for (const b of bugs){
+          b.x += b.vx; b.y += b.vy;
+          if (b.x<0||b.x>w||b.y<0||b.y>h) reset(b);
+          const glow = 60; const g = ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r*glow);
+          g.addColorStop(0, `rgba(190, 242, 100, ${b.a})`);
+          g.addColorStop(1, 'rgba(190, 242, 100, 0)');
+          ctx.fillStyle = g; ctx.beginPath(); ctx.arc(b.x,b.y,b.r*glow,0,Math.PI*2); ctx.fill();
+        }
+        requestAnimationFrame(loop);
+      })();
+    })();
+
+    // Urgencia: cupos y cuenta regresiva
+    const TOTAL_SLOTS = 20;   // ← Edita aquí
+    let booked = 6;           // ← Edita aquí
+    const left = Math.max(TOTAL_SLOTS - booked, 0);
+    const bar = document.getElementById('spots-bar');
+    const leftES = document.getElementById('spots-left');
+    const totalES = document.getElementById('spots-total');
+    const leftEN = document.getElementById('spots-left-en');
+    const totalEN = document.getElementById('spots-total-en');
+    if (bar){ bar.style.width = `${(booked/TOTAL_SLOTS)*100}%`; }
+    if (leftES){ leftES.textContent = left; totalES.textContent = TOTAL_SLOTS; }
+    if (leftEN){ leftEN.textContent = left; totalEN.textContent = TOTAL_SLOTS; }
+
+    // Countdown
+    const urg = document.getElementById('urgencia');
+    const rawDate = urg?.dataset.date?.trim();
+    const target = rawDate ? new Date(rawDate) : new Date(Date.now() + 45*24*3600*1000);
+    const cd = document.getElementById('countdown');
+    function tick(){
+      const now = new Date(); const ms = target - now;
+      if (!cd) return; if (ms<=0){ cd.textContent = (document.documentElement.lang==='en'?'starting soon':'muy pronto'); return; }
+      const d = Math.floor(ms/86400000), h = Math.floor(ms%86400000/3600000), m = Math.floor(ms%3600000/60000);
+      cd.textContent = `${d}d ${h}h ${m}m`;
+    } tick(); setInterval(tick, 60000);
+
+    // Sticky CTA (aparece tras scrollear)
+    const scta = document.getElementById('sticky-cta');
+    const onScroll = ()=>{ if (!scta) return; scta.classList.toggle('hidden', window.scrollY < 600); };
+    onScroll(); window.addEventListener('scroll', onScroll);
+  </script>
+</body>
+</html>
 
