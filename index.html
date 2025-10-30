@@ -59,7 +59,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     /* Fondo video */
-    $1 cursor:pointer; }
+    .hero-video { position:absolute; inset:0; z-index:-10; cursor: pointer; }
+    .hero-video iframe { width:100%; height:100%; object-fit:cover; }
     /* Gradiente sutil por legibilidad */
     .mask-grad { background: radial-gradient(80% 80% at 50% 20%, rgba(0,0,0,0.2), rgba(0,0,0,0.7)); }
     .glass { background: rgba(255,255,255,0.08); backdrop-filter: blur(6px); }
@@ -79,13 +80,13 @@
     @media (min-width: 768px){ .sticky-cta{ inset-inline:auto; right:1.5rem; width:420px; } }
   </style>
 </head>
-<body$1>
+<body>
   <!-- Fondo interactivo: Camino de la selva (parallax + luciérnagas) -->
   <div id="bg-parallax" aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden">
-    <!-- Reemplaza por tus capas reales del camino de la selva -->
-    <img src="/media/path_far.jpg" alt="Selva lejana" class="parallax-layer opacity-40" data-depth="0.2"/>
-    <img src="/media/path_mid.png" alt="Selva media" class="parallax-layer opacity-60" data-depth="0.5"/>
-    <img src="/media/path_near.png" alt="Selva cercana" class="parallax-layer opacity-80" data-depth="0.9"/>
+    <!-- Capas de parallax reales para el camino de la selva -->
+    <img src="/media/cruz.jpg" alt="Rosario sobre poste de madera" class="parallax-layer opacity-40" data-depth="0.2" />
+    <img src="/media/taita-mesa.jpg" alt="Taita preparando medicina sobre mesa ritual" class="parallax-layer opacity-60" data-depth="0.5" />
+    <img src="/media/grupo.jpg" alt="Grupo junto al atardecer en la selva" class="parallax-layer opacity-80" data-depth="0.9" />
     <canvas id="fireflies" class="absolute inset-0"></canvas>
   </div>
   <!-- NAV -->
@@ -109,10 +110,9 @@
 
   <!-- HERO -->
   <section class="relative min-h-[92vh] flex items-center overflow-hidden">
-    <video class="hero-video" autoplay muted playsinline loop poster="cover.jpg" preload="auto">
-      <!-- Reemplazar src por el video de la jungla (archivo .mp4 alojado en tu hosting) -->
-      <source src="/media/Selva.mp4" type="video/mp4" />
-    </video>
+    <div class="hero-video">
+      <iframe src="https://www.youtube.com/embed/q2mvcffdNeU?autoplay=1&mute=1&controls=0&loop=1&playlist=q2mvcffdNeU&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media; playsinline;" class="w-full h-full object-cover" frameborder="0"></iframe>
+    </div>
     <div class="absolute inset-0 mask-grad"></div>
     <div class="relative z-10 max-w-5xl mx-auto px-4 pt-28 pb-12 text-center">
       <div class="flex justify-center gap-2 mb-6">
@@ -202,8 +202,7 @@
       </div>
       <div class="card p-4">
         <div class="aspect-video rounded-xl overflow-hidden">
-          <!-- Reemplaza VIDEO_ID por el ID del video de la jungla -->
-          <iframe id="video" class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID" title="Video — El Ángel de la Ayahuasca" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe id="video" class="w-full h-full" src="https://www.youtube.com/embed/q2mvcffdNeU" title="Video — El Ángel de la Ayahuasca" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
         <a class="block text-center mt-3 underline opacity-90" href="https://www.youtube.com/@Angel_Ayahuasca" target="_blank" rel="noreferrer">Canal de YouTube</a>
       </div>
@@ -357,7 +356,7 @@
     </div>
   </section>
 
-  <!-- GALERÍA (placeholders) -->
+  <!-- GALERÍA -->
   <section class="relative py-16" id="galeria">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-semibold mb-6" data-es>Galería</h2>
@@ -606,6 +605,7 @@
   <footer class="border-t border-white/10 py-8 text-center text-sm opacity-70">
     <p>🪽 El Ángel de la Ayahuasca — Medicina Ancestral • Putumayo, Colombia</p>
     <p class="mt-1">© <span id="year"></span> Todos los derechos reservados.</p>
+    <p class="mt-1">Powered by Abraxas</p>
   </footer>
 
   <script>
@@ -624,7 +624,7 @@
 
     // Año automático
     document.getElementById('year').textContent = new Date().getFullYear();
-      // Click en el video lleva al formulario
+    // Click en el video lleva al formulario
     const heroVid = document.querySelector('.hero-video');
     if (heroVid) {
       heroVid.addEventListener('click', () => {
@@ -633,16 +633,6 @@
         location.hash = 'reserva';
       });
     }
-      // Click video -> formulario (ya existente)
-    const heroVid = document.querySelector('.hero-video');
-    if (heroVid) {
-      heroVid.addEventListener('click', () => {
-        const el = document.getElementById('reserva');
-        if (el) el.scrollIntoView({behavior:'smooth'});
-        location.hash = 'reserva';
-      });
-    }
-
     // Parallax
     const layers = document.querySelectorAll('#bg-parallax .parallax-layer');
     const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -711,7 +701,7 @@
     const scta = document.getElementById('sticky-cta');
     const onScroll = ()=>{ if (!scta) return; scta.classList.toggle('hidden', window.scrollY < 600); };
     onScroll(); window.addEventListener('scroll', onScroll);
-      // Exit‑intent modal
+    // Exit‑intent modal
     (function(){
       const modal = document.getElementById('exit-modal');
       if(!modal) return;
