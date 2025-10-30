@@ -70,6 +70,30 @@
     #bg-parallax { pointer-events:none; }
     .parallax-layer { position:absolute; top:-5%; left:-5%; width:110%; height:110%; object-fit:cover; transform:translate3d(0,0,0) scale(1.05); will-change: transform; }
     #fireflies { pointer-events:none; }
+    /* Ajustes para mostrar video correctamente */
+    .hero-video {
+      /* Asegura que el video ocupe todo el contenedor */
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Botón de WhatsApp en burbuja fluorescente */
+    .whatsapp-bubble {
+      background: linear-gradient(45deg, #bef264, #84cc16);
+      color: #0a0a0a;
+      border-radius: 9999px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      box-shadow: 0 0 10px rgba(190, 242, 100, 0.7), 0 0 20px rgba(132, 204, 22, 0.7);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .whatsapp-bubble:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(190, 242, 100, 0.9), 0 0 25px rgba(132, 204, 22, 0.9);
+    }
 
     /* Barra de urgencia */
     .progress-wrap { height:10px; border-radius:9999px; background:rgba(255,255,255,0.12); overflow:hidden; }
@@ -81,7 +105,8 @@
 
     /* Fondo general: imagen mística para evitar blancos. La imagen debe existir en /media/mistica.png */
     body {
-      background-image: url('/media/mistica.png');
+      /* Usa ruta relativa para GitHub Pages */
+      background-image: url('media/mistica.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -93,9 +118,9 @@
   <!-- Fondo interactivo: Camino de la selva (parallax + luciérnagas) -->
   <div id="bg-parallax" aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden">
     <!-- Capas de parallax reales para el camino de la selva -->
-    <img src="/media/cruz.jpg" alt="Rosario sobre poste de madera" class="parallax-layer opacity-40" data-depth="0.2" />
-    <img src="/media/taita-mesa.jpg" alt="Taita preparando medicina sobre mesa ritual" class="parallax-layer opacity-60" data-depth="0.5" />
-    <img src="/media/grupo.jpg" alt="Grupo junto al atardecer en la selva" class="parallax-layer opacity-80" data-depth="0.9" />
+     <img src="media/cruz.jpg" alt="Rosario sobre poste de madera" class="parallax-layer opacity-40" data-depth="0.2" />
+     <img src="media/taita-mesa.jpg" alt="Taita preparando medicina sobre mesa ritual" class="parallax-layer opacity-60" data-depth="0.5" />
+     <img src="media/grupo.jpg" alt="Grupo junto al atardecer en la selva" class="parallax-layer opacity-80" data-depth="0.9" />
     <canvas id="fireflies" class="absolute inset-0"></canvas>
   </div>
   <!-- NAV -->
@@ -120,9 +145,9 @@
   <!-- HERO -->
   <section class="relative min-h-[92vh] flex items-center overflow-hidden">
     <!-- Hero: utiliza el video Selva.mp4 para una introducción inmersiva. -->
-    <video class="hero-video" autoplay muted playsinline loop poster="cover.jpg" preload="auto">
-      <source src="/media/Selva.mp4" type="video/mp4" />
-    </video>
+     <video class="hero-video" autoplay muted playsinline loop preload="auto">
+       <source src="media/Selva.mp4" type="video/mp4" />
+     </video>
     <div class="absolute inset-0 mask-grad"></div>
     <div class="relative z-10 max-w-5xl mx-auto px-4 pt-28 pb-12 text-center">
       <div class="flex justify-center gap-2 mb-6">
@@ -254,7 +279,7 @@
       <h2 class="text-2xl md:text-3xl font-semibold mb-4" data-es>Invitación de Andreea</h2>
       <h2 class="text-2xl md:text-3xl font-semibold mb-4" data-en style="display:none">Andreea’s invitation</h2>
       <div class="grid md:grid-cols-3 gap-6 items-start">
-        <img src="/media/andreea.jpg" alt="Andreea — El Ángel de la Ayahuasca" class="rounded-2xl md:col-span-1 object-cover w-full h-full max-h-[360px]">
+         <img src="media/andreea.jpg" alt="Andreea — El Ángel de la Ayahuasca" class="rounded-2xl md:col-span-1 object-cover w-full h-full max-h-[360px]">
         <div class="md:col-span-2">
           <details class="card p-5" open>
             <summary class="cursor-pointer font-semibold">Ver descripción</summary>
@@ -374,10 +399,10 @@
       <p class="opacity-80 text-sm mb-4" data-es>Reemplaza estas imágenes por las reales (incluida la foto de Andreea).</p>
       <p class="opacity-80 text-sm mb-4" data-en style="display:none">Replace these with real images (including Andreea’s photo).</p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <img class="aspect-[4/3] object-cover rounded-xl" src="/media/cruz.jpg" alt="Rosario sobre poste de madera" />
-        <img class="aspect-[4/3] object-cover rounded-xl" src="/media/taita-mesa.jpg" alt="Taita preparando medicina sobre mesa ritual" />
-        <img class="aspect-[4/3] object-cover rounded-xl" src="/media/grupo.jpg" alt="Grupo junto al atardecer en la selva" />
-        <img class="aspect-[4/3] object-cover rounded-xl" src="/media/andreea.jpg" alt="Andreea — El Ángel de la Ayahuasca" />
+         <img class="aspect-[4/3] object-cover rounded-xl" src="media/cruz.jpg" alt="Rosario sobre poste de madera" />
+         <img class="aspect-[4/3] object-cover rounded-xl" src="media/taita-mesa.jpg" alt="Taita preparando medicina sobre mesa ritual" />
+         <img class="aspect-[4/3] object-cover rounded-xl" src="media/grupo.jpg" alt="Grupo junto al atardecer en la selva" />
+         <img class="aspect-[4/3] object-cover rounded-xl" src="media/andreea.jpg" alt="Andreea — El Ángel de la Ayahuasca" />
       </div>
     </div>
   </section>
@@ -575,8 +600,12 @@
     </div>
   </div>
 
-  <!-- Botón WhatsApp flotante -->
-  <a href="https://wa.me/68987311369" target="_blank" class="fixed bottom-4 left-4 z-40 rounded-full bg-emerald-500 px-4 py-3 shadow-lg border border-white/20">WhatsApp</a>
+   <!-- Botón WhatsApp flotante: estilo burbuja fluorescente -->
+   <a href="https://wa.me/68987311369" target="_blank" class="fixed bottom-4 left-4 z-40 whatsapp-bubble flex items-center gap-2">
+     <!-- Icono de WhatsApp (SVG simple) -->
+     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48a12.17 12.17 0 0 0-17.07 0 11.87 11.87 0 0 0-3.45 8.5 11.7 11.7 0 0 0 1.63 6L1 22.78l4.83-1.54a12.16 12.16 0 0 0 6.12 1.62h.02a11.87 11.87 0 0 0 8.5-3.45 12.17 12.17 0 0 0 .05-17.03Zm-8.5 17.02h-.02a10.33 10.33 0 0 1-5.28-1.47l-.38-.23-2.86.92.94-2.8-.25-.4a10.24 10.24 0 0 1-1.63-5.61 10.48 10.48 0 0 1 3.06-7.49 10.7 10.7 0 0 1 7.54-3.1 10.34 10.34 0 0 1 7.47 3.08 10.33 10.33 0 0 1 .04 14.72 10.45 10.45 0 0 1-7.59 3.1Zm5.18-7.13c-.28-.14-1.63-.8-1.88-.89s-.44-.14-.63.14-.72.89-.88 1.07-.33.21-.61.07a8.44 8.44 0 0 1-2.47-1.53 9.27 9.27 0 0 1-1.7-2.12c-.17-.28 0-.43.13-.57.13-.13.29-.33.43-.5a1.9 1.9 0 0 0 .28-.47.55.55 0 0 0-.03-.54c-.07-.14-.63-1.52-.87-2.07s-.46-.48-.64-.48h-.55a1.06 1.06 0 0 0-.77.36 3.22 3.22 0 0 0-1 2.39 5.64 5.64 0 0 0 1.2 2.9 12.71 12.71 0 0 0 4.8 4.2 10.72 10.72 0 0 0 1.08.4 2.63 2.63 0 0 0 1.2.07 1.88 1.88 0 0 0 1.23-.86 2.07 2.07 0 0 0 .43-.86c.06-.2.06-.36-.03-.5s-.32-.21-.7-.37Z"/></svg>
+     <span class="font-medium">WhatsApp</span>
+   </a>
 
   <!-- Modal de salida (lead magnet) -->
   <div id="exit-modal" class="fixed inset-0 z-50 hidden">
